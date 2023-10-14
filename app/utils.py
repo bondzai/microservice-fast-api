@@ -2,19 +2,8 @@ import time
 
 class Utils:
 
-    # input data: list of dict, search_keyword: string
-    def custom_filters(self, input_data, search_keyword):
-        result = []
-        search_columns = ["a", "b"]
-        
-        for project in input_data:
-            for key, value in project.items():
-                if key in search_columns:
-                    if search_keyword.lower() in str(value).lower():
-                        result.append(project)
-                        break
-
-        return result
+    def __init__(self) -> None:
+        pass
 
     def performance_monitor(func):
         def wrapper(*args, **kwargs):
@@ -26,3 +15,16 @@ class Utils:
             return result
 
         return wrapper
+
+    def custom_filters(self, input_data, search_keyword):
+        result = []
+        search_columns = ["a", "b"]
+
+        for project in input_data:
+            for key, value in project.items():
+                if key in search_columns:
+                    if search_keyword.lower() in str(value).lower():
+                        result.append(project)
+                        break
+
+        return result
